@@ -435,7 +435,7 @@ namespace AwsAmiTool
                     }
                 }
 
-                state.SelectedIds.Clear();
+                state.SelectedIds = state.SelectedIds.Clear();
 
                 foreach(KeyValuePair<string, ImmutableList<int>> kvp in state.Groups)
                 {
