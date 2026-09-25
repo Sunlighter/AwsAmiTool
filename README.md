@@ -18,3 +18,15 @@ commands. There is a full set of parser combinators even though this program doe
 
 The browser uses long polling (via XHR) to fetch progress indications from the server side. It is possible to retry if
 there are any exceptions.
+
+A typical usage is:
+
+* `list-regions` (optional)
+* `set-region` with a quoted string e.g. `"us-west-2"`
+* `get-images`
+* `select` and `deselect` as needed, with one or more numbers (comma-delimited), e.g., `1,3`
+* `start-deletion` (and watch)
+* `show-task-status` (when the action stops)
+* `retry-faulted` (if any faulted)
+
+Snapshots are also deleted, but are delayed 30 seconds after their AMIs.
