@@ -203,8 +203,6 @@ namespace AwsAmiTool
                                         w.WriteLine("<html>");
                                         w.WriteLine("<head>");
                                         w.WriteLine("<title>AWS AMI tool</title>");
-                                        // can't reference the stylesheet here, because we will have already quit
-                                        // when the browser requests the stylesheet, and the request will time out.
                                         w.WriteLine("</head>");
                                         w.WriteLine("<body>");
                                         w.WriteLine("<h1>AWS AMI tool</h1>");
@@ -299,6 +297,8 @@ namespace AwsAmiTool
         private static Parser GetCommandParser()
         {
 #if false
+            // this was a parser test
+
             Parser p = ParserBuilder.Empty
                 .BeginAlternatives()
                 .ReadLiteral("one", StringComparison.InvariantCultureIgnoreCase)
@@ -337,10 +337,6 @@ namespace AwsAmiTool
 #endif
         }
 
-        /// <summary>
-        /// Stub: turn the raw textarea into a command object.
-        /// Replace this with a real parser when the command language is defined.
-        /// </summary>
         static ToolCommand ParseCommand(string commandText)
         {
             commandText ??= string.Empty;
