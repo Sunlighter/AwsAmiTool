@@ -178,6 +178,7 @@ namespace AwsAmiTool
                 }
 
                 sb.AppendLine("</ul>");
+                sb.AppendLine("<p id=\"status\">Ready</p>");
                 return sb.ToString();
             }
             else
