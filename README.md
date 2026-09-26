@@ -14,10 +14,17 @@ It presents a textarea where you can type a command. (The commands are implement
 `TC_`, and most of them don&rsquo;t take arguments.)
 
 It uses the **Sunlighter.LrParserGenLib** to create a fluent syntax for building parser combinators for these
-commands. There is a full set of parser combinators even though this program doesn&rsquo;t use them all.
+commands. There is a full set of parser combinators even though this program doesn&rsquo;t use them all. (It is
+notable that the LR(1) parser is not used to parse the commands, but to build the parser for the commands...)
 
-The browser uses long polling (via XHR) to fetch progress indications from the server side. It is possible to retry if
-there are any exceptions.
+The parsing tables for the fluent syntax are kept in an embedded resource. If you change the grammar, the code will
+detect that the tables are no longer up-to-date, and it will build new tables (which is slow) and then write the new
+tables to a file on the desktop. You can then drag that file over into the project directory (in File Explorer, not
+Visual Studio) and replace the embedded resource, to prevent the tables from being built again. In a production
+application, the tables would always be up-to-date, so no file would be written.
+
+The browser uses long polling (via XHR) to fetch progress indications from the server side. It is possible for the
+user to retry if there are any exceptions when deleting an AMI or a snapshot.
 
 A typical usage is:
 
