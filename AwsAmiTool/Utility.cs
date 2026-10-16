@@ -58,8 +58,6 @@ namespace AwsAmiTool
                 // leave unspecified
             }
 
-            response.ContentEncoding = Encoding.UTF8;
-
             response.Headers["Cache-Control"] = "no-cache, no-store, must-revalidate";
             response.Headers["Pragma"] = "no-cache";
             response.Headers["Expires"] = "0";
