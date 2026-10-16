@@ -23,7 +23,7 @@ namespace AwsAmiTool
 
     public sealed class StaticCommandResult : CommandResult
     {
-        private string html;
+        private readonly string html;
 
         public StaticCommandResult(string html)
         {
@@ -35,9 +35,9 @@ namespace AwsAmiTool
 
     public sealed class DynamicCommandResult : CommandResult
     {
-        private Func<int> getCurrentTime;
-        private Func<string> getHtml;
-        private Func<HttpListenerContext, Task> callback;
+        private readonly Func<int> getCurrentTime;
+        private readonly Func<string> getHtml;
+        private readonly Func<HttpListenerContext, Task> callback;
 
         public DynamicCommandResult
         (
